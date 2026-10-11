@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MNH Bank | Premium Banking</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:white;background:radial-gradient(circle at top,#173e69,#050914 65%);min-height:100vh}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:900;color:#ffd477;letter-spacing:3px}
+button{padding:13px 19px;border:0;border-radius:10px;cursor:pointer;font-weight:bold;background:linear-gradient(120deg,#ffe7a0,#d9a438);color:#101728;margin:4px}
+button:hover{transform:translateY(-2px);box-shadow:0 5px 25px #ffce6266}
+.secondary{background:#172743;color:white;border:1px solid #52627e}
+main{width:88%;max-width:1100px;margin:auto}
+#home{min-height:75vh;display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.05;margin:20px 0}
+.gold{background:linear-gradient(#fff4c7,#e8ac36,#fff0ad);color:transparent;background-clip:text;-webkit-background-clip:text}
+p{color:#b9c8df;line-height:1.8}
+.eyebrow{color:#64dfff;letter-spacing:4px;font-size:12px}
+.card3d{width:min(390px,90vw);aspect-ratio:1.6;padding:27px;border-radius:22px;background:linear-gradient(135deg,#28537b,#101a32 60%,#9a7031);border:1px solid #ffffff66;box-shadow:20px 25px 60px #0009;transform:perspective(900px) rotateY(-13deg) rotateX(7deg);animation:float 4s ease-in-out infinite}
+.cardnum{margin-top:38px;letter-spacing:4px}
+@keyframes float{50%{transform:perspective(900px) rotateY(-5deg) rotateX(3deg) translateY(-12px)}}
+.orb{position:absolute;width:320px;height:320px;border:1px solid #58cfff66;border-radius:50%;animation:spin 18s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.art{position:relative;display:grid;place-items:center;width: min(430px,100%);height:390px}
+.panel{background:#101c32dd;border:1px solid #ffffff1c;border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 20px 50px #0003}
+input{display:block;width:100%;padding:14px;margin:12px 0;background:#071224;border:1px solid #34435c;border-radius:9px;color:white}
+#auth{max-width:430px;margin:35px auto}
+#dashboard h2{margin-top:0}
+.balance{font-size:clamp(35px,6vw,52px);font-weight:900;margin:20px 0;color:#ffe09a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.row{padding:13px 0;border-bottom:1px solid #ffffff18;display:flex;justify-content:space-between;gap:10px}
+.tx{padding:12px 0;border-bottom:1px solid #ffffff18;color:#dce7f8}
+.small{font-size:12px;color:#9eafc9}
+footer{text-align:center;padding:25px;color:#8596b2;font-size:12px}
+.hidden{display:none!important}
+@media(max-width:750px){#home{padding:30px 0}.art{height:330px}.orb{width:260px;height:260px}.grid{grid-template-columns:1fr}header{padding:18px 5%}main{width:92%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ MNH BANK</div>
+    <button class="secondary" id="navLogin" onclick="showAuth('login')">Login / Sign Up</button>
+    </header>
+
+    <main>
+    <section id="home">
+     <div style="flex:1;min-width:260px">
+       <div class="eyebrow">THE FUTURE OF DIGITAL BANKING</div>
+         <h1><span class="gold">WELCOME TO</span><br><span class="gold">MNH BANK</span></h1>
+           <p>A premium digital banking experience.<br>Smart design. Modern technology. Your demo dashboard.</p>
+             <button onclick="showAuth('signup')">GET STARTED ↗</button>
+               <button class="secondary" onclick="showAuth('login')">LOGIN</button>
+                </div>
+                 <div class="art">
+                   <div class="orb"></div>
+                     <div class="card3d">
+                        <div style="display:flex;justify-content:space-between">
+                            <b class="gold">MNH BANK</b><span>◈</span>
+                               </div>
+                                  <div class="cardnum">•••• &nbsp; •••• &nbsp; •••• &nbsp; 2048</div>
+                                     <div style="display:flex;justify-content:space-between;margin-top:32px;font-size:12px">
+                                         <span>DEMO MEMBER<br><b>SYED NAJAF</b></span>
+                                             <span>VIRTUAL<br><b>PLATINUM</b></span>
+                                                </div>
+                                                  </div>
+                                                   </div>
+                                                   </section>
+
+                                                   <section id="auth" class="panel hidden">
+                                                    <div class="eyebrow">MNH BANK • DEMO ACCESS</div>
+                                                     <h2 id="authTitle">Welcome Back</h2>
+                                                      <p>Enter your demo details to continue.</p>
+                                                       <form id="authForm">
+                                                         <input id="name" placeholder="Your name" required>
+                                                           <input id="email" type="email" placeholder="Email address (demo)" required>
+                                                             <input id="password" type="password" minlength="4" placeholder="Demo password (4+ characters)" required>
+                                                               <button type="submit" id="authButton">Open Dashboard ↗</button>
+                                                                </form>
+                                                                 <p id="switchText">New here? <a href="#" onclick="toggleMode();return false" style="color:#ffd477">Create account</a></p>
+                                                                  <p class="small">Practice website only. Never enter your real banking password.</p>
+                                                                   <button class="secondary" onclick="goHome()">← Back</button>
+                                                                   </section>
+
+                                                                   <section id="dashboard" class="hidden">
+                                                                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+                                                                      <div><div class="eyebrow">PERSONAL DASHBOARD</div><h2>Welcome, <span id="member" class="gold"></span> 👋</h2></div>
+                                                                        <button class="secondary" onclick="logout()">Logout</button>
+                                                                         </div>
+                                                                          <div class="grid">
+                                                                            <div>
+                                                                               <div class="panel">
+                                                                                   <div class="small">AVAILABLE DEMO BALANCE · PKR</div>
+                                                                                       <div class="balance" id="balance">100000000</div>
+                                                                                           <div class="small">DEMO ACCOUNT • **** 2048</div>
+                                                                                               <hr style="border-color:#ffffff18;margin:22px 0">
+                                                                                                   <button onclick="money('deposit')">＋ Deposit</button>
+                                                                                                       <button class="secondary" onclick="money('withdraw')">− Withdraw</button>
+                                                                                                           <button class="secondary" onclick="transfer()">⇧ Transfer</button>
+                                                                                                              </div>
+                                                                                                                 <div class="panel">
+                                                                                                                     <h3>Account Details</h3>
+                                                                                                                         <div class="row"><span>Account Holder</span><b id="holder"></b></div>
+                                                                                                                             <div class="row"><span>Account Type</span><b>Digital Demo</b></div>
+                                                                                                                                 <div class="row"><span>Account Number</span><b>**** 2048</b></div>
+                                                                                                                                     <div class="row"><span>Status</span><b style="color:#70e8ba">Demo Active</b></div>
+                                                                                                                                        </div>
+                                                                                                                                          </div>
+                                                                                                                                            <div class="panel">
+                                                                                                                                               <h3>Transaction History</h3>
+                                                                                                                                                  <div id="history" class="small">No transactions yet.</div>
+                                                                                                                                                     <button class="secondary" onclick="clearHistory()">Clear History</button>
+                                                                                                                                                       </div>
+                                                                                                                                                        </div>
+                                                                                                                                                         <p class="small">All balances are fictional demo amounts, not real money.</p>
+                                                                                                                                                         </section>
+                                                                                                                                                         </main>
+
+                                                                                                                                                         <footer>© 2026 MNH BANK · STUDENT WEB DEVELOPMENT PROJECT · DEMO ONLY</footer>
+
+                                                                                                                                                         <script>
+                                                                                                                                                         let mode="login", user="", balance=0, history=[];
+
+                                                                                                                                                         function showAuth(m){
+                                                                                                                                                          mode=m;
+                                                                                                                                                           document.getElementById("home").classList.add("hidden");
+                                                                                                                                                            document.getElementById("dashboard").classList.add("hidden");
+                                                                                                                                                             document.getElementById("auth").classList.remove("hidden");
+                                                                                                                                                              document.getElementById("navLogin").classList.add("hidden");
+                                                                                                                                                               document.getElementById("authTitle").textContent=m==="signup"?"Create Demo Account":"Welcome Back";
+                                                                                                                                                                document.getElementById("authButton").textContent=m==="signup"?"Create Account ↗":"Login to Dashboard ↗";
+                                                                                                                                                                 document.getElementById("switchText").innerHTML=m==="signup"?
+                                                                                                                                                                  'Already registered? <a href="#" onclick="toggleMode();return false" style="color:#ffd477">Login</a>':
+                                                                                                                                                                   'New here? <a href="#" onclick="toggleMode();return false" style="color:#ffd477">Create account</a>';
+                                                                                                                                                                    window.scrollTo(0,0);
+                                                                                                                                                                    }
+                                                                                                                                                                    function toggleMode(){showAuth(mode==="login"?"signup":"login")}
+                                                                                                                                                                    function goHome(){
+                                                                                                                                                                     document.getElementById("home").classList.remove("hidden");
+                                                                                                                                                                      document.getElementById("auth").classList.add("hidden");
+                                                                                                                                                                       document.getElementById("navLogin").classList.remove("hidden");
+                                                                                                                                                                        window.scrollTo(0,0);
+                                                                                                                                                                        }
+                                                                                                                                                                        document.getElementById("authForm").addEventListener("submit",function(e){
+                                                                                                                                                                         e.preventDefault();
+                                                                                                                                                                          user=document.getElementById("name").value.trim();
+                                                                                                                                                                           if(!user)return;
+                                                                                                                                                                            // Demo only: no real authentication; password is not stored.
+                                                                                                                                                                             balance=0;history=[];
+                                                                                                                                                                              document.getElementById("member").textContent=user.split(" ")[0];
+                                                                                                                                                                               document.getElementById("holder").textContent=user;
+                                                                                                                                                                                document.getElementById("auth").classList.add("hidden");
+                                                                                                                                                                                 document.getElementById("home").classList.add("hidden");
+                                                                                                                                                                                  document.getElementById("dashboard").classList.remove("hidden");
+                                                                                                                                                                                   document.getElementById("navLogin").classList.add("hidden");
+                                                                                                                                                                                    update();window.scrollTo(0,0);
+                                                                                                                                                                                    });
+                                                                                                                                                                                    function update(){
+                                                                                                                                                                                     document.getElementById("balance").textContent=balance.toLocaleString("en-PK",{minimumFractionDigits:2,maximumFractionDigits:2});
+                                                                                                                                                                                      document.getElementById("history").innerHTML=history.length?
+                                                                                                                                                                                       history.map(t=>'<div class="tx">'+t.label+'<br><span class="small">'+t.time+'</span><b style="float:right">'+(t.add?"+":"−")+' PKR '+t.amount.toLocaleString("en-PK")+'</b></div>').join(""):"No transactions yet.";
+                                                                                                                                                                                       }
+                                                                                                                                                                                       function money(type){
+                                                                                                                                                                                        let raw=prompt(type==="deposit"?"Demo deposit amount in PKR:":"Demo withdrawal amount in PKR:");
+                                                                                                                                                                                         if(raw===null)return;
+                                                                                                                                                                                          let amount=Number(raw);
+                                                                                                                                                                                           if(!Number.isFinite(amount)||amount<=0||amount>1000000){alert("Enter an amount between 1 and 1,000,000.");return}
+                                                                                                                                                                                            if(type==="withdraw"&&amount>balance){alert("Insufficient demo balance.");return}
+                                                                                                                                                                                             balance+=type==="deposit"?amount:-amount;
+                                                                                                                                                                                              history.unshift({label:type==="deposit"?"Demo Deposit":"Demo Withdrawal",amount,add:type==="deposit",time:new Date().toLocaleString()});
+                                                                                                                                                                                               update();
+                                                                                                                                                                                               }
+                                                                                                                                                                                               function transfer(){alert("Transfer is a demo placeholder. No real money can be transferred.")}
+                                                                                                                                                                                               function clearHistory(){history=[];update()}
+                                                                                                                                                                                               function logout(){
+                                                                                                                                                                                                user="";balance=0;history=[];
+                                                                                                                                                                                                 document.getElementById("dashboard").classList.add("hidden");
+                                                                                                                                                                                                  document.getElementById("home").classList.remove("hidden");
+                                                                                                                                                                                                   document.getElementById("navLogin").classList.remove("hidden");
+                                                                                                                                                                                                    document.getElementById("authForm").reset();window.scrollTo(0,0);
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                    </script>
+                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                    </html>
+                                                                                                                                                                                                
